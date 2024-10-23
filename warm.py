@@ -36,5 +36,14 @@ async def human(ctx):
     with open ('Texts/man.txt','r', encoding='UTF-8')as f:
         await ctx.send(f.read())
 
+@bot.command()
+async def mem(ctx):
+    paint=os.listdir('images')
+    rand_image=random.choice(paint)
+    with open(f'images/{rand_image}', 'rb') as f:
+        # В переменную кладем файл, который преобразуется в файл библиотеки Discord!
+        picture = discord.File(f)
+   # Можем передавать файл как параметр!
+    await ctx.send(file=picture)
 
-bot.run("")
+bot.run("MTIyNTEwOTA5NzI5MzI4MzMyOA.G1cI4P.FuZPVVt8z4LBn9EPK9ieSVs0gLs8oCP9tC1WWM")
